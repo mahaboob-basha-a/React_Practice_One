@@ -6,6 +6,7 @@ import App from './App';
 import Login from './login';
 import About from './About';
 import Routing from './Routing';
+import {LoginSuccess} from './LoginSuccess';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,6 +17,7 @@ root.render(
     <Route path='/' element={<App/>} />
     <Route path='/home' element={<App/>} />
     <Route path='/login' element={<Login/>} />
+    <Route path='/login/LoginSuccess' element={<LoginSuccess/>} />
     <Route path='/about' element={<About/>}/>
   </Routes>
   </BrowserRouter>

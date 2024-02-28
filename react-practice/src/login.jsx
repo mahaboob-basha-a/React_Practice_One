@@ -1,16 +1,17 @@
+import {Link} from 'react-router-dom';
+
 const Login = ()=>{
-    function para(){
-        return alert("hi");
-    }
+   let handling = (e)=>{
+    e.preventDefault();
+   }
     return(<div className="p-4">
-        <form>
+        <form >
             <label className="text-dark" htmlFor="nameOne">Name</label>
             <input type="text" name="" id="nameOne" className="form-control" />
             <label className="text-dark" htmlFor="nameOne">Password</label>
             <input type="text" name="" id="nameOne" className="form-control" />
-            <button className="btn btn-primary mt-4" onClick={para}>Login Now</button>
+            <button className="btn btn-primary mt-4"><Link to={'LoginSuccess'} className='text-light'>Login</Link></button>
         </form>
-        <p></p>
     </div>);
 }
 
