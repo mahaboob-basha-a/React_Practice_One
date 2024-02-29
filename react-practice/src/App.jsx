@@ -5,8 +5,8 @@ let App = ()=>{
   const [list,setlist] = useState([]);
   const [editing,setediting] = useState({id:"",isedit:false});
   const [para,setpara] = useState("");
+  const [para1,setpara1] = useState("");
   const inputValue = (e)=>{
-  
     settodo({...todo,text:e.target.value});
   }
 
@@ -16,6 +16,7 @@ let App = ()=>{
     e.preventDefault();
     if(todo.text === ""){
       setpara("Please Enter Todo Name.");
+      setpara1("");
     }else{
       const newTodo = {
         text:todo.text,
@@ -24,6 +25,7 @@ let App = ()=>{
       setlist([...list,newTodo])
       settodo({text:"",id:""})
       setpara("");
+      setpara1("");
     }
   }
 
@@ -34,6 +36,7 @@ let App = ()=>{
       return e.id !== id;
     })
     setlist(filtering)
+    setpara1("");
   }
 
 
@@ -44,6 +47,7 @@ let App = ()=>{
     });
     settodo({...todo,text:gettingObj.text,id:gettingObj.id});
     setediting({...editing,id:id,isedit:true})
+    setpara1("");
   }
 
 
@@ -53,6 +57,7 @@ let App = ()=>{
 
     if(todo.text === ""){
       setpara("Please Enter Todo Name.");
+      setpara1("");
     }else{
     let newdo = list.map((eachItem)=>{
         if(eachItem.id === editing.id){
@@ -70,7 +75,13 @@ let App = ()=>{
     setediting({...editing,isedit:false});
     settodo({text:"",id:""});
     setpara("");
+    setpara1("");
   }
+  }
+
+
+  function paraOne(){
+    setpara1("Feature Adds Soon...");
   }
 
 
@@ -99,7 +110,10 @@ let App = ()=>{
           </div>);
         })
       }
-      </ul>:
+      <button onClick={paraOne} className="btn btn-primary">Save</button>
+      <p className="text-danger">{para1}</p>
+      </ul>
+      :
       <h3 className="text-center">No Data Found</h3>
   }
   </div>);
