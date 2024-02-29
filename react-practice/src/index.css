@@ -7,12 +7,71 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.paraEl{
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+span{
+  font-size: 17px;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+.container-one{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.input-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.list-container{
+  border: 0.5px solid #b109ff;
+  border-radius: 2px;
+  box-shadow: 0px 0px 4px  #6403ff;
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 55px;
+  padding: 10px 12px;
+  margin: .5rem 0px;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.inputEl{
+  border: 2px solid #8f08f5;
+  padding: 5px 15px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
 ul{
   list-style: none;
 }
+a:hover{
+  text-decoration: none;
+}
+a:focus{
+  background-color: rgb(127, 80, 201);
+  color: #f9f7f7;
+  text-decoration: none;
+  border-radius: 4px;
+  padding: 3px;
+}
+

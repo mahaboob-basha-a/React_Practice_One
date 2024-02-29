@@ -1,27 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {BrowserRouter, Route, Routes} from'react-router-dom';
+import {BrowserRouter,Route,Routes} from'react-router-dom';
 import './index.css';
-import App from './App';
-import Login from './login';
-import About from './About';
-import Routing from './Routing';
-import {LoginSuccess} from './LoginSuccess';
+import { Practice, Test } from './Practice';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <>
   <BrowserRouter>
-  <Routing/>
   <Routes>
-    <Route path='/' element={<App/>} />
-    <Route path='/home' element={<App/>} />
-    <Route path='/login' element={<Login/>} />
-    <Route path='/login/LoginSuccess' element={<LoginSuccess/>} />
-    <Route path='/about' element={<About/>}/>
+    <Route path='/' element={<Practice/>} />
+    <Route path='/test' element={<Test/>} />
   </Routes>
   </BrowserRouter>
-    
-  </>
 );
 
