@@ -137,8 +137,12 @@ let App = ()=>{
       <button onClick={paraOne} className="btn btn-primary">Save</button>
       <p className="text-success mt-3">{para1}</p>
       </ul>
-      :
+      :<div className="d-flex flex-column justify-content-center">
       <h3 className="text-center">No Data Found</h3>
+      <button onClick={paraOne} className="btn btn-primary align-self-center">Save</button>
+      <p className="text-success mt-3 text-center">{para1}</p>
+      </div>
+      
   }
   </div>);
 }
