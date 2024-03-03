@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 let App = ()=>{
   const [todo,settodo] = useState({text:"",id:""});
@@ -9,6 +9,13 @@ let App = ()=>{
   const inputValue = (e)=>{
     settodo({...todo,text:e.target.value});
   }
+
+
+  useEffect(()=>{
+    let newTodo = localStorage.getItem("todoEl");
+    setlist(JSON.parse(newTodo));
+    console.log(JSON.parse(newTodo));
+  },[])
 
 
 
@@ -60,7 +67,8 @@ let App = ()=>{
       setpara1("");
     }else{
     let newdo = list.map((eachItem)=>{
-        if(eachItem.id === editing.id){
+       
+      if(eachItem.id === editing.id){
           return {
             text:todo.text,
             id:editing.id
@@ -71,17 +79,33 @@ let App = ()=>{
             return eachItem;
           }
     });
+    
     setlist(newdo)
     setediting({...editing,isedit:false});
     settodo({text:"",id:""});
-    setpara("");
+    let timing = setInterval(()=>{
+        setpara("Updated Successfully..") 
+    },10)
+    setTimeout(()=>{
+      clearInterval(timing);
+      setpara("");
+    },1000)
+    // setpara("");
     setpara1("");
   }
   }
 
 
   function paraOne(){
-    setpara1("Feature Adds Soon...");
+    localStorage.setItem("todoEl",JSON.stringify(list));
+    let timing = setInterval(()=>{
+      setpara1("Saved Successfully...."); 
+  },10)
+  setTimeout(()=>{
+    clearInterval(timing);
+    setpara1("");
+  },1000)
+    
   }
 
 
@@ -111,7 +135,7 @@ let App = ()=>{
         })
       }
       <button onClick={paraOne} className="btn btn-primary">Save</button>
-      <p className="text-danger">{para1}</p>
+      <p className="text-success mt-3">{para1}</p>
       </ul>
       :
       <h3 className="text-center">No Data Found</h3>
