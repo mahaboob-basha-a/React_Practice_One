@@ -121,7 +121,7 @@ let App = ()=>{
     </form>
     <hr />
   {
-      list.length>0 || null?
+      list.length>0 || list.length === null ?
     <ul className="container-one">
     {
       list.map((items)=>{
